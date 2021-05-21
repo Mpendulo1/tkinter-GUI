@@ -15,7 +15,7 @@ class ClsTicketSales:
         # Cell number widgets
         self.cell_lbl = Label(master, text="Enter Cell Number:", bg='#c3073F')     # creating the cell_lbl Label widget instructing a customer to input his/her cellphone number
         self.cell_lbl.place(x=10, y=30)     # positioning the cell_lbl Label widget utilizing the place() geometry manager
-        self.cell_entry = Entry(master)      # creating the cell_entry Entry widget where the customer will input his/her cellphone number
+        self.cell_entry = Entry(master, bg='#4E4E50', fg='white')      # creating the cell_entry Entry widget where the customer will input his/her cellphone number
         self.cell_entry.place(x=200, y=30)     # positioning the cell_entry Entry widget using the place() geometry manager
 
         # Category widgets
@@ -28,13 +28,13 @@ class ClsTicketSales:
         # Number of tickets bought
         self.tickets_bought = Label(master, text="Number Of Tickets Bought:", bg='#c3073F')
         self.tickets_bought.place(x=10, y=130)
-        self.bought_entry = Spinbox(master, from_=0, to=100, width=17)
+        self.bought_entry = Spinbox(master, from_=0, to=100, width=17, bg='#4E4E50', fg='white')
         self.bought_entry.place(x=200, y=130)
 
         # My buttons
-        self.calculate_button = Button(master, text="Calculate Ticket", fg="white", command=self.calc)   #
+        self.calculate_button = Button(master, text="Calculate Ticket", fg="white", command=self.calc, bg='#c3073F')   #
         self.calculate_button.place(x=10, y=180)
-        self.clear_button = Button(master, text="Clear Entries", fg="white", command=self.clear)
+        self.clear_button = Button(master, text="Clear Entries", fg="white", command=self.clear, bg='#c3073F')
         self.clear_button.place(x=200, y=180)
 
         # Output section
@@ -43,7 +43,7 @@ class ClsTicketSales:
 
         self.payable = Label(master, text="Amount Payable: ", bg='#c3073F')
         self.payable.place(x=10, y=260)
-        self.payable_output = Label(master, text="", fg="green", bg='#c3073F')
+        self.payable_output = Label(master, text="", fg="green",)
         self.payable_output.place(x=180, y=260)
 
         self.reservation = Label(master, text="Reservation: ", bg='#c3073F')
@@ -65,12 +65,12 @@ class ClsTicketSales:
         self.lb2.place(x=10, y=380)
 
         # Exit Button
-        self.exit_btn = Button(master, text="Exit", fg="white", width=15, command=self.exit)
+        self.exit_btn = Button(master, text="Exit", fg="white", width=15, command=self.exit, bg='#c3073F')
         self.exit_btn.place(x=120, y=410)
 
     # defining a method to validate the inputs from the customer and make calculations
     def calc(self):
-        # Check if all the input fiels are filled, if not ==> display error messagebox
+        # Check if all the input fields are filled, if not ==> display error messagebox
         if self.category_list.get() == "" or self.bought_entry.get() == "" or self.cell_entry.get() == "":
             self.message_box = messagebox.showerror('Input Error', 'Please make sure all the input fields are filled')
 
